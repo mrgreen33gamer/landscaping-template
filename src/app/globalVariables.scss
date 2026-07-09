@@ -1,39 +1,30 @@
-// src/app/globalVariables.scss
-// ─────────────────────────────────────────────────────────────────────────────
-// GreenScape Pro — Brand Tokens
-//
-// THREE DISTINCT FONTS (unchanged from base template — already work well):
-//   $titleFont  → Barlow Condensed  — bold condensed display (hero h1, section titles)
-//   $headerFont → Outfit            — clean geometric sans   (nav, card titles, labels, CTAs)
-//   $textFont   → Inter             — refined humanist sans  (body copy, form text, paragraphs)
-// ─────────────────────────────────────────────────────────────────────────────
+// Auto uniqueness tokens — living garden editorial
+$titleFont:  var(--font-title),  'Spectral', sans-serif;
+$headerFont: var(--font-header), 'Libre Franklin', sans-serif;
+$textFont:   var(--font-body),   'Spectral', sans-serif;
 
-$titleFont:  var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
-$headerFont: var(--font-outfit),           'Outfit',           sans-serif;
-$textFont:   var(--font-inter),            'Inter',            sans-serif;
-
-// ── Core Palette ─────────────────────────────────────────────────────────────
 $black:      #000000;
-$obsidian:   #0d1f16;
-$blackflat:  #16281f;
+$obsidian:   #14532d;
+$blackflat:  #14532d;
 $white:      #FFFFFF;
-$offwhite:   #f7faf8;
+$offwhite:   #f7fee7;
 
-// Greys (forest-tinted)
-$darkgrey:   #7a9b85;
-$grey:       #4a6a55;
-$lightgrey:  #c8e0cc;
+$darkgrey:   #94a3b8;
+$grey:       #64748b;
+$lightgrey:  #e2e8f0;
 
-// Brand Accent
-$green:      #16a34a;
-$lightgreen: #4ade80;
-$darkgreen:  #15803d;
+$orange:     #84cc16;
+$lightorange:#a3e635;
+$darkorange: #4d7c0f;
 
-// Legacy aliases (kept so any component still referencing $orange resolves to the live accent)
-$orange:      $green;
-$lightorange: $lightgreen;
-$darkorange:  $darkgreen;
-$blue:       #1e6fa8;
+$green:      $orange;
+$lightgreen: $lightorange;
+$darkgreen:  $darkorange;
+$blue:       #84cc16;
 
-// Error
+$radius-sm:  12px;
+$radius-md:  18px;
+$radius-lg:  24px;
+$radius-pill: 999px;
+
 $danger-red: #ef4444;

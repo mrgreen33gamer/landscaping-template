@@ -30,12 +30,12 @@ import Variant4 from "#/PageComponents/ContactForms/Variant4/Form";
 export default function HomePage() {
 
   const services = [
-    { icon: faSeedling,    title: "Lawn Mowing & Maintenance", body: "Weekly or bi-weekly mowing, edging, and blowdown on a schedule that keeps your yard consistently sharp.", link: "/services/lawn-mowing-maintenance" },
-    { icon: faTree,        title: "Landscape Design",          body: "Full design-to-install landscape plans — beds, plantings, and layout built around how your property is actually used.", link: "/services/landscape-design" },
-    { icon: faWater,       title: "Irrigation & Sprinklers",   body: "System install, repair, and seasonal tune-ups that keep every zone watering evenly without waste.", link: "/services/irrigation-sprinkler-systems" },
-    { icon: faPaintRoller, title: "Hardscaping",               body: "Patios, walkways, and retaining walls built to hold up through Texas heat and hard freezes alike.", link: "/services/hardscaping" },
-    { icon: faLeaf,        title: "Tree & Shrub Care",         body: "Pruning, shaping, and health treatments that keep trees and shrubs looking intentional, not overgrown.", link: "/services/tree-shrub-care" },
-    { icon: faBroom,       title: "Seasonal Cleanup",          body: "Spring and fall cleanup — leaf removal, bed refresh, and pre-season prep so your yard is never caught off guard.", link: "/services/seasonal-cleanup" },
+    { icon: faSeedling,    title: "Lawn Mowing & Maintenance", body: "Weekly or bi-weekly mowing, edging, and blowdown on a schedule that keeps your yard consistently sharp.", link: "/services/lawn-mowing-maintenance", image: "/pages/home/services/service-1.jpg" },
+    { icon: faTree,        title: "Landscape Design",          body: "Full design-to-install landscape plans — beds, plantings, and layout built around how your property is actually used.", link: "/services/landscape-design", image: "/pages/home/services/service-2.jpg" },
+    { icon: faWater,       title: "Irrigation & Sprinklers",   body: "System install, repair, and seasonal tune-ups that keep every zone watering evenly without waste.", link: "/services/irrigation-sprinkler-systems", image: "/pages/home/services/service-3.jpg" },
+    { icon: faPaintRoller, title: "Hardscaping",               body: "Patios, walkways, and retaining walls built to hold up through Texas heat and hard freezes alike.", link: "/services/hardscaping", image: "/pages/home/services/service-4.jpg" },
+    { icon: faLeaf,        title: "Tree & Shrub Care",         body: "Pruning, shaping, and health treatments that keep trees and shrubs looking intentional, not overgrown.", link: "/services/tree-shrub-care", image: "/pages/home/services/service-1.jpg" },
+    { icon: faBroom,       title: "Seasonal Cleanup",          body: "Spring and fall cleanup — leaf removal, bed refresh, and pre-season prep so your yard is never caught off guard.", link: "/services/seasonal-cleanup", image: "/pages/home/services/service-2.jpg" },
   ];
 
   const metrics = [
@@ -97,64 +97,50 @@ export default function HomePage() {
 
   return (
     <main className={styles.pageWrapper}>
-
       <WelcomePage />
-
       <TrustBar headline="Waco's trusted landscaping company — licensed, insured, and guaranteed on every job" />
-
-      <div className={styles.section}>
-        <ImpactMetrics title="Numbers That Speak for Us" metrics={metrics} cityName="Waco" />
-      </div>
-
       <div className={styles.section}>
         <ServiceCardComponent heading="Complete Landscaping Services for Your Property" cards={services} />
       </div>
-
       <div className={styles.section}>
         <WhyChooseUs cityName="Waco" features={whyFeatures} title="What Makes GreenScape Pro Different" />
       </div>
-
-      <div className={styles.section}>
-        <Variant4 title="Request Service or a Free Quote" cityName="Waco" slug="/" spot="homepage-contact-form" formVariant={2} />
-      </div>
-
       <div className={styles.section}>
         <ProcessTimeline steps={processSteps} />
       </div>
-
+      <div className={styles.section}>
+        <ImpactMetrics title="Numbers That Speak for Us" metrics={metrics} cityName="Waco" />
+      </div>
       <div className={styles.section}>
         <Testimonials testimonials={reviews} />
       </div>
-
       <div className={styles.section}>
         <GuaranteeSection />
       </div>
-
       <CTABanner
-        headline="Yard Getting Away From You? Let's Fix That."
-        subline="Free estimates across Waco, Hewitt, Woodway, Robinson, and all of Central Texas. Flat-rate pricing. 30-day guarantee."
+        headline="Outdoor Spaces Worth Living In."
+        subline="Design, plantings, drainage, and maintenance plans — curb appeal that survives Central Texas seasons."
         primaryText="Call (254) 900-5200"
         primaryLink="tel:+12549005200"
-        secondaryText="Book Online"
+        secondaryText="Book Landscape Consult"
         secondaryLink="/contact"
+        imageSrc="/pages/home/welcome/hero-main.jpg"
       />
-
       <div className={styles.section}>
         <LocalServiceAreas cityName="Waco" areas={localAreas} servicePath="" title="Serving All of Central Texas" />
       </div>
-
       <div className={styles.section}>
         <WhatToExpect sectionTitle="Every Service Visit, Every Time" expectations={expectations} />
       </div>
-
       <div className={styles.section}>
         <FAQ cityName="Waco" faq={faq} title="Landscaping Questions — Answered Straight" />
       </div>
-
       <div className={styles.section}>
         <BlogPreviewGrid />
       </div>
-
+      <div className={styles.section}>
+        <Variant4 title="Request Service or a Free Quote" cityName="Waco" slug="/" spot="homepage-contact-form" formVariant={2} />
+      </div>
     </main>
   );
 }

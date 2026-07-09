@@ -13,8 +13,8 @@ import bcrypt from 'bcryptjs';
 
 const FROM_EMAIL  = process.env.FROM_EMAIL      ?? '';
 const SMTP2GO_KEY = process.env.SMTP2GO_API_KEY ?? '';
-const SITE_URL    = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.greenscapeprowaco.com';
-const BRAND_NAME  = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'GreenScape Pro';
+const SITE_URL    = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arcticairhvac.com';
+const BRAND_NAME  = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'Arctic Air HVAC';
 
 // ── Welcome email ─────────────────────────────────────────────────────────────
 function buildWelcomeEmailHtml(name: string, email: string): string {
