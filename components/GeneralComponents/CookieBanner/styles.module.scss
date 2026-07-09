@@ -259,3 +259,42 @@
     justify-content: center;
   }
 }
+
+/* === COOKIE UNIQUENESS — landscaping-template === */
+.backdrop {
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
+  left: auto !important;
+  top: auto !important;
+  max-width: 360px !important;
+  transform: none;
+}
+
+.card {
+  background: linear-gradient(145deg, $obsidian 0%, color.adjust($obsidian, $lightness: 4%) 100%) !important;
+  border: 3px solid $orange !important;
+  border-radius: 0 !important;
+  padding: 1.15rem !important;
+  
+  
+}
+
+.iconWrap {
+  border-radius: 50% !important;
+  background: rgba($orange, 0.14) !important;
+  border-color: rgba($orange, 0.28) !important;
+  color: $orange !important;
+}
+
+.btnAccept {
+  background: $lightorange !important;
+  color: $obsidian !important;
+  border-radius: 12px !important;
+  &:hover { filter: brightness(1.08); }
+}
+
+.btnDecline,
+.btnEssential {
+  border-radius: 12px !important;
+}
+/* end cookie uniqueness */

@@ -354,3 +354,28 @@
 }
 
 /* end identity layer */
+
+/* === HERO PATTERN UNIQUENESS — landscaping-template === */
+.hero {
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 12px, rgba($white, 0.02) 12px, rgba($white, 0.02) 13px),
+      repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba($white, 0.015) 12px, rgba($white, 0.015) 13px) !important;
+    background-size: auto !important;
+    opacity: 0.63 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+
+  &::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(ellipse 50% 40% at 14% 18%, rgba($orange, 0.079), transparent 70%), radial-gradient(ellipse 40% 50% at 60% 67%, rgba($white, 0.03), transparent 65%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+}
+/* end hero pattern */
