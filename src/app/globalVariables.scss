@@ -1,0 +1,39 @@
+// src/app/globalVariables.scss
+// ─────────────────────────────────────────────────────────────────────────────
+// GreenScape Pro — Brand Tokens
+//
+// THREE DISTINCT FONTS (unchanged from base template — already work well):
+//   $titleFont  → Barlow Condensed  — bold condensed display (hero h1, section titles)
+//   $headerFont → Outfit            — clean geometric sans   (nav, card titles, labels, CTAs)
+//   $textFont   → Inter             — refined humanist sans  (body copy, form text, paragraphs)
+// ─────────────────────────────────────────────────────────────────────────────
+
+$titleFont:  var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
+$headerFont: var(--font-outfit),           'Outfit',           sans-serif;
+$textFont:   var(--font-inter),            'Inter',            sans-serif;
+
+// ── Core Palette ─────────────────────────────────────────────────────────────
+$black:      #000000;
+$obsidian:   #0d1f16;
+$blackflat:  #16281f;
+$white:      #FFFFFF;
+$offwhite:   #f7faf8;
+
+// Greys (forest-tinted)
+$darkgrey:   #7a9b85;
+$grey:       #4a6a55;
+$lightgrey:  #c8e0cc;
+
+// Brand Accent
+$green:      #16a34a;
+$lightgreen: #4ade80;
+$darkgreen:  #15803d;
+
+// Legacy aliases (kept so any component still referencing $orange resolves to the live accent)
+$orange:      $green;
+$lightorange: $lightgreen;
+$darkorange:  $darkgreen;
+$blue:       #1e6fa8;
+
+// Error
+$danger-red: #ef4444;
