@@ -27,7 +27,8 @@
   flex-direction: column;
   gap: 0.9rem;
   position: relative;
-  overflow: hidden;
+  // visible so uniqueness radius/height tweaks cannot clip title, body, or buttons
+  overflow: visible;
 
   // subtle green glow top-left
   &::before {
@@ -38,6 +39,13 @@
     border-radius: 50%;
     background: radial-gradient(ellipse, rgba($green, 0.1) 0%, transparent 65%);
     pointer-events: none;
+    z-index: 0;
+  }
+
+  // Keep interactive content above the glow
+  > * {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -275,8 +283,15 @@
   border: 3px solid $orange !important;
   border-radius: 0 !important;
   padding: 1.15rem !important;
-  
-  
+  // Content must stay fully visible — never re-add overflow:hidden here.
+  // max-height is viewport-relative (not gated on a width breakpoint) so a
+  // short-but-wide window (e.g. landscape phone/small desktop) also scrolls
+  // instead of rendering the top of the card off-screen.
+  overflow: visible !important;
+  max-height: min(85vh, 640px) !important;
+  overflow-y: auto !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
 }
 
 .iconWrap {
