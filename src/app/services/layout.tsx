@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=3`,
+        url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`,
         alt: "GreenScape Pro — Landscaping Services for Central Texas Properties",
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Landscaping Services in Waco, TX | GreenScape Pro",
     description:
       "Lawn mowing, landscape design, irrigation, hardscaping, tree care, and seasonal cleanup in Waco, TX. Flat-rate pricing, free estimates.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=3`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: { index: true, follow: true },
 };

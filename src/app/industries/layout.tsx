@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     siteName: "GreenScape Pro",
     locale: "en_US",
     type: "website",
-    images: [{ url: `${BASE_URL}/logos/scott-apps-banner.png`, alt: "GreenScape Pro — Industries Served" }],
+    images: [{ url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`, alt: "GreenScape Pro — Industries Served" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Industries We Serve | GreenScape Pro",
     description: "Commercial landscaping for HOAs, property managers, commercial real estate, and municipal contracts across Central Texas.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: { index: true, follow: true },
 };

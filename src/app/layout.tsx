@@ -125,7 +125,7 @@ export const metadata: Metadata = {
     siteName: "GreenScape Pro",
     images: [
       {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
+        url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`,
         width: 1200,
         height: 630,
         alt: "GreenScape Pro — Waco TX Lawn Care & Landscaping",
@@ -139,7 +139,7 @@ export const metadata: Metadata = {
     title: "GreenScape Pro | Waco TX Lawn Care & Landscaping",
     description:
       "Lawn care, landscape design, irrigation service & seasonal cleanup for Central Texas. Licensed & insured — no contracts.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: {
     index: true,

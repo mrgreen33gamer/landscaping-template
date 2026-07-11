@@ -34,8 +34,8 @@ export default function HomePage() {
     { icon: faTree,        title: "Landscape Design",          body: "Full design-to-install landscape plans — beds, plantings, and layout built around how your property is actually used.", link: "/services/landscape-design", image: "/pages/home/services/service-2.jpg" },
     { icon: faWater,       title: "Irrigation & Sprinklers",   body: "System install, repair, and seasonal tune-ups that keep every zone watering evenly without waste.", link: "/services/irrigation-sprinkler-systems", image: "/pages/home/services/service-3.jpg" },
     { icon: faPaintRoller, title: "Hardscaping",               body: "Patios, walkways, and retaining walls built to hold up through Texas heat and hard freezes alike.", link: "/services/hardscaping", image: "/pages/home/services/service-4.jpg" },
-    { icon: faLeaf,        title: "Tree & Shrub Care",         body: "Pruning, shaping, and health treatments that keep trees and shrubs looking intentional, not overgrown.", link: "/services/tree-shrub-care", image: "/pages/home/services/service-1.jpg" },
-    { icon: faBroom,       title: "Seasonal Cleanup",          body: "Spring and fall cleanup — leaf removal, bed refresh, and pre-season prep so your yard is never caught off guard.", link: "/services/seasonal-cleanup", image: "/pages/home/services/service-2.jpg" },
+    { icon: faLeaf,        title: "Tree & Shrub Care",         body: "Pruning, shaping, and health treatments that keep trees and shrubs looking intentional, not overgrown.", link: "/services/tree-shrub-care", image: "/pages/home/welcome/before.jpg" },
+    { icon: faBroom,       title: "Seasonal Cleanup",          body: "Spring and fall cleanup — leaf removal, bed refresh, and pre-season prep so your yard is never caught off guard.", link: "/services/seasonal-cleanup", image: "/pages/home/welcome/after.jpg" },
   ];
 
   const metrics = [

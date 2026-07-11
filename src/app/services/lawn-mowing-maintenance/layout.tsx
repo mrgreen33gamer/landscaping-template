@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     siteName: "GreenScape Pro",
     locale: "en_US",
     type: "website",
-    images: [{ url: `${BASE_URL}/logos/scott-apps-banner.png`, alt: "Lawn mowing and maintenance in Waco, TX – GreenScape Pro" }],
+    images: [{ url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`, alt: "Lawn mowing and maintenance in Waco, TX – GreenScape Pro" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lawn Mowing & Maintenance in Waco, TX | GreenScape Pro",
     description: "Weekly and bi-weekly lawn mowing and maintenance for Waco and Central Texas properties.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
 };
 

@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     siteName: "GreenScape Pro",
     locale: "en_US",
     type: "website",
-    images: [{ url: `${BASE_URL}/logos/scott-apps-banner.png`, alt: "Irrigation and sprinkler system service in Waco, TX – GreenScape Pro" }],
+    images: [{ url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`, alt: "Irrigation and sprinkler system service in Waco, TX – GreenScape Pro" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Irrigation & Sprinkler Systems in Waco, TX | GreenScape Pro",
     description: "Sprinkler system installation, repair, and seasonal tune-ups for Waco and Central Texas properties.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
 };
 

@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     siteName: "GreenScape Pro",
     locale: "en_US",
     type: "website",
-    images: [{ url: `${BASE_URL}/logos/scott-apps-banner.png`, alt: "Tree and shrub care in Waco, TX – GreenScape Pro" }],
+    images: [{ url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`, alt: "Tree and shrub care in Waco, TX – GreenScape Pro" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tree & Shrub Care in Waco, TX | GreenScape Pro",
     description: "Tree and shrub pruning, shaping, and health treatments for Waco and Central Texas properties.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
 };
 
