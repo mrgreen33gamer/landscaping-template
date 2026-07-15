@@ -1,112 +1,68 @@
-// _archetype-library/hero-i-editorial/Component.tsx
-//
-// Hero I: Minimal Editorial — oversized typography, single accent shape,
-// large negative space. Optional accentWord as huge watermark typography.
-// No canvas, no stat cards, no widget.
+// Landscaping Hero — living garden editorial
+// Photographic parallax stage + an authentic crew photo card replaces the
+// abstract watermark/accent-shape composition. Real imagery, lime-on-forest
+// palette, Spectral headline. Photos live in /public/pages/home/welcome.
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PhoneIcon, ChevronIcon, CheckIcon } from './_shared/icons';
 import styles from './styles.module.scss';
 
 export default function WelcomePage() {
-const badgeText = 'Waco\'s Most Trusted Landscaper — Since 2012';
-const headlineLines = [
-  'Grow It.',
-  'Shape It.',
-];
-const headlineAccent = 'GreenScape Pro.';
-const subheadline = 'Flat-rate pricing. On-time crews. 30-day re-service guarantee on every job. Serving Waco and Central Texas with licensed, insured landscape professionals.';
-const primaryCta = { label: 'Call (254) 900-5200', href: 'tel:+12549005200' };
-const secondaryCta = { label: 'Free Estimate', href: '/contact' };
-const chips = [
-  'Free Estimates',
-  'No Contracts',
-  'TDA Licensed',
-  '12+ Yrs Local',
-  '30-Day Guarantee',
-];
-const stats = [
-  {
-    "value": "1,800+",
-    "label": "Properties Serviced"
-  },
-  {
-    "value": "4.9 ★",
-    "label": "Google Rating"
-  },
-  {
-    "value": "30-Day",
-    "label": "Re-Service Guarantee"
-  },
-  {
-    "value": "Free",
-    "label": "On-Site Estimates"
-  }
-];
-const meterTarget = 72;
-const meterTopLabel = "Featured";
-const meterMidLabel = "Popular";
-const meterBotLabel = "Classic";
-const particleColor = '#84cc16';
-const beforeImageSrc = '/pages/home/welcome/before.jpg';
-const afterImageSrc = '/pages/home/welcome/after.jpg';
-const beforeLabel = "Patchy yard";
-const afterLabel = "Designed beds";
-const mapCenterLabel = 'Service HQ';
-const mapPins = [
-  { label: 'Waco', x: 42, y: 48 },
-  { label: 'Temple', x: 68, y: 62 },
-  { label: 'Killeen', x: 58, y: 72 },
-];
-const coverageLabel = 'Central Texas coverage';
-const materials = [
-  { name: "Native Beds", swatch: "#22c55e", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "Hardscape", swatch: "#4ade80", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "Trees", swatch: "#16a34a", imageSrc: "/pages/home/welcome/mat-3.jpg" },
-  { name: "Lighting", swatch: "#86efac", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "Drainage", swatch: "#15803d", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "Maintenance", swatch: "#14532d", imageSrc: "/pages/home/welcome/mat-3.jpg" }
-];
-const quote = "They fixed our drainage and rebuilt the front beds. Neighborhood walkers slow down now.";
-const authorName = "The Carters";
-const authorMeta = "Front redesign · Hewitt";
-const rating = 5;
-const schematicLabel = "GreenScape schematic";
-const gauges = [
-  { label: "Properties", value: "1,500+" },
-  { label: "Rating", value: "4.9 ★" },
-  { label: "Plans", value: "Seasonal" },
-  { label: "Design", value: "Included" }
-];
-const toggles = [
-  { label: "Showroom open", on: true },
-  { label: "Samples ready", on: true },
-  { label: "Install crews", on: true }
-];
-const textureSrc = '/pages/home/welcome/hero-main.jpg';
-const textureAlt = 'Texture';
-const accentWord = "GreenScape";
+  const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Scroll-linked parallax on the background photo. Disabled under reduced-motion.
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '16%']);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.08, reduceMotion ? 1.08 : 1.16]);
+
+  const badgeText = 'Waco\'s Most Trusted Landscaper — Since 2012';
+  const headlineLines = ['Grow It.', 'Shape It.'];
+  const headlineAccent = 'GreenScape Pro.';
+  const subheadline =
+    'Flat-rate pricing. On-time crews. 30-day re-service guarantee on every job. Serving Waco and Central Texas with licensed, insured landscape professionals.';
+  const primaryCta = { label: 'Call (254) 900-5200', href: 'tel:+12549005200' };
+  const secondaryCta = { label: 'Free Estimate', href: '/contact' };
+  const chips = [
+    'Free Estimates',
+    'No Contracts',
+    'TDA Licensed',
+    '12+ Yrs Local',
+    '30-Day Guarantee',
+  ];
+
+  const backgroundSrc = '/pages/home/welcome/hero-scene.jpg';
+  const cardSrc = '/pages/home/welcome/hero-crew.jpg';
+  const cardAlt =
+    'Landscaper shaping a hedge with a powered trimmer in a sunlit garden';
+  const cardBadge = 'Licensed Crew · On-Site';
+  const specPoints = ['Flat-rate pricing', '30-day re-service guarantee'];
 
   return (
-    <section className={styles.hero} aria-label="Hero">
-      {/* Single geometric accent — not a content widget */}
-      <div className={styles.accentShape} aria-hidden="true" />
-      <div className={styles.hairline} aria-hidden="true" />
-
-      {accentWord ? (
-        <div className={styles.watermarkSlot} aria-hidden="true">
-          <motion.span
-            className={styles.watermark}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.0, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {accentWord}
-          </motion.span>
-        </div>
-      ) : null}
+    <section ref={heroRef} className={styles.hero} aria-label="Hero">
+      {/* Photographic parallax background — real landscaped garden scene */}
+      <motion.div
+        className={styles.bgLayer}
+        style={{ y: bgY, scale: bgScale }}
+        aria-hidden="true"
+      >
+        <Image
+          src={backgroundSrc}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.bgImage}
+        />
+      </motion.div>
+      {/* Forest-green scrim keeps the headline legible and on-brand */}
+      <div className={styles.scrim} aria-hidden="true" />
 
       <div className={styles.layout}>
         <div className={styles.content}>
@@ -176,6 +132,39 @@ const accentWord = "GreenScape";
             ))}
           </motion.div>
         </div>
+
+        {/* Authentic crew photo — the ownable image, framed as a spec card */}
+        <motion.div
+          className={styles.visual}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          <div className={styles.photoCard}>
+            <Image
+              src={cardSrc}
+              alt={cardAlt}
+              fill
+              priority
+              sizes="(max-width: 960px) 88vw, 460px"
+              className={styles.photo}
+            />
+            <div className={styles.photoGlaze} aria-hidden="true" />
+
+            <div className={styles.photoBadge}>
+              <span className={styles.photoBadgeDot} />
+              {cardBadge}
+            </div>
+
+            <div className={styles.specCard}>
+              {specPoints.map((point) => (
+                <span key={point} className={styles.specRow}>
+                  <CheckIcon size={10} /> {point}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

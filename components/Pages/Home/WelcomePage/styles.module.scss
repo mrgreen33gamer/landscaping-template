@@ -1,136 +1,64 @@
-// Hero I — Minimal Editorial
-// @use path assumes adaptation into components/Pages/Home/WelcomePage/
+// Landscaping Hero — living garden editorial
+// Photographic parallax stage, lime-on-forest palette, Spectral headline,
+// authentic crew photo card on the right.
 @use '../../../../src/app/globalVariables.scss' as *;
 
 .hero {
   position: relative;
   min-height: 100svh;
-  height: 100svh;
   background: $obsidian;
   overflow: hidden;
   display: flex;
   align-items: center;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    // Extremely subtle paper grain — editorial restraint
-    background-image: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba($white, 0.008) 3px,
-      rgba($white, 0.008) 4px
-    );
-    pointer-events: none;
-    z-index: 0;
-  }
+  isolation: isolate;
 }
 
-// Single oversized geometric accent (right field)
-.accentShape {
+// ── Photographic parallax background ──────────────────────────────────────────
+.bgLayer {
   position: absolute;
-  top: 50%;
-  right: -8%;
-  width: min(48vw, 560px);
-  height: min(48vw, 560px);
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 40% 40%,
-    rgba($orange, 0.1) 0%,
-    rgba($orange, 0.03) 45%,
-    transparent 70%
-  );
-  border: 1px solid rgba($orange, 0.1);
-  pointer-events: none;
+  top: -8%;
+  left: 0;
+  width: 100%;
+  height: 116%;
   z-index: 0;
-
-  @media (max-width: 960px) {
-    width: min(70vw, 360px);
-    height: min(70vw, 360px);
-    right: -20%;
-    top: 18%;
-    transform: none;
-    opacity: 0.7;
-  }
+  will-change: transform;
 }
 
-// Vertical hairline for editorial structure
-.hairline {
+.bgImage {
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+// Forest-green scrim — keeps the garden photo on-brand and the headline legible.
+// Darker on the left (text column), lighter on the right (photo card).
+.scrim {
   position: absolute;
-  top: 12%;
-  bottom: 12%;
-  right: clamp(2rem, 12vw, 9rem);
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba($white, 0.1) 20%,
-    rgba($orange, 0.25) 50%,
-    rgba($white, 0.1) 80%,
-    transparent 100%
-  );
-  pointer-events: none;
+  inset: 0;
   z-index: 1;
-
-  @media (max-width: 960px) {
-    display: none;
-  }
-}
-
-.watermarkSlot {
-  position: absolute;
-  right: clamp(-2rem, 2vw, 1rem);
-  top: 50%;
-  transform: translateY(-50%);
   pointer-events: none;
-  z-index: 0;
-  max-width: 55%;
-  overflow: hidden;
-  text-align: right;
-
-  @media (max-width: 960px) {
-    right: 0;
-    top: auto;
-    bottom: 6%;
-    transform: none;
-    max-width: 100%;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-.watermark {
-  display: block;
-  font-family: $titleFont;
-  font-size: clamp(5.5rem, 14vw, 13rem);
-  font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba($white, 0.06);
-  text-transform: uppercase;
-  white-space: nowrap;
-  user-select: none;
-
-  @media (max-width: 960px) {
-    font-size: clamp(4rem, 18vw, 7rem);
-    opacity: 0.7;
-  }
+  background:
+    radial-gradient(120% 90% at 82% 18%, rgba(132, 204, 22, 0.18) 0%, rgba(132, 204, 22, 0) 55%),
+    radial-gradient(90% 80% at 8% 92%, rgba(20, 83, 45, 0.5) 0%, rgba(20, 83, 45, 0) 60%),
+    linear-gradient(100deg, rgba(8, 28, 16, 0.94) 0%, rgba(10, 35, 20, 0.8) 42%, rgba(12, 45, 26, 0.5) 74%, rgba(12, 45, 26, 0.32) 100%),
+    linear-gradient(180deg, rgba(8, 28, 16, 0.35) 0%, rgba(8, 28, 16, 0) 32%, rgba(8, 28, 16, 0.55) 100%);
 }
 
 .layout {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   max-width: 1380px;
   margin: 0 auto;
   padding: clamp(6rem, 11vh, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(5rem, 9vh, 7rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 460px);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
 
   @media (max-width: 960px) {
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem;
     padding: clamp(5rem, 9vh, 7rem) 1.5rem clamp(4rem, 7vh, 6rem);
   }
 }
@@ -157,9 +85,9 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba($orange, 0.9);
-  border: 1px solid rgba($orange, 0.22);
-  background: transparent;
+  color: $lightorange;
+  border: 1px solid rgba($orange, 0.32);
+  background: rgba($orange, 0.08);
   border-radius: 0;
   padding: 0.4rem 0.85rem;
   width: fit-content;
@@ -207,13 +135,13 @@
   font-family: $textFont;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   line-height: 1.65;
-  color: rgba($white, 0.58);
-  max-width: 30rem;
+  color: rgba($offwhite, 0.82);
+  max-width: 32rem;
   margin: 0;
   font-weight: 400;
 
   @media (max-width: 960px) {
-    max-width: 28rem;
+    max-width: 30rem;
   }
 }
 
@@ -256,16 +184,16 @@
   font-family: $headerFont;
   font-size: 0.92rem;
   font-weight: 700;
-  color: rgba($white, 0.85);
+  color: rgba($offwhite, 0.9);
   text-decoration: none;
   padding: 0.95rem 1.25rem;
   border-radius: 2px;
-  border: 1px solid rgba($white, 0.14);
+  border: 1px solid rgba($offwhite, 0.2);
   transition: border-color 0.18s, background 0.18s;
 
   &:hover {
-    border-color: rgba($white, 0.3);
-    background: rgba($white, 0.03);
+    border-color: rgba($orange, 0.55);
+    background: rgba($offwhite, 0.04);
   }
 }
 
@@ -289,13 +217,147 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba($white, 0.48);
+  color: rgba($offwhite, 0.6);
   padding: 0;
   border: none;
   background: transparent;
 
   svg {
-    color: rgba($orange, 0.75);
+    color: $lightorange;
+  }
+}
+
+// ── Authentic crew photo card (replaces the watermark/accent art) ─────────────
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+}
+
+.photoCard {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid rgba($lightorange, 0.3);
+  box-shadow:
+    0 1px 0 rgba(247, 254, 231, 0.14) inset,
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 6px rgba($orange, 0.07);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: 66% center;
+}
+
+// Forest-to-shadow glaze so the overlays stay readable
+.photoGlaze {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 28, 16, 0) 42%, rgba(8, 28, 16, 0.78) 100%),
+    linear-gradient(300deg, rgba(132, 204, 22, 0.16) 0%, rgba(132, 204, 22, 0) 46%);
+}
+
+.photoBadge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $textFont;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $offwhite;
+  background: rgba(8, 28, 16, 0.62);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba($lightorange, 0.34);
+  border-radius: $radius-pill;
+  padding: 0.4rem 0.85rem;
+}
+
+.photoBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $lightorange;
+  box-shadow: 0 0 8px 1px rgba($lightorange, 0.8);
+  flex-shrink: 0;
+}
+
+.specCard {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
+  border-radius: $radius-md;
+  background: rgba(8, 28, 16, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba($lightorange, 0.24);
+}
+
+.specRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: $headerFont;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba($offwhite, 0.94);
+
+  svg {
+    color: $lightorange;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .visual {
+    min-height: 0;
+    margin-top: 0.25rem;
+  }
+  .photoCard {
+    max-width: 360px;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100svh;
+    height: auto;
+  }
+  .headline {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+  .sub {
+    font-size: 0.95rem;
+  }
+  .ctaRow {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 }
 
@@ -311,11 +373,6 @@
   grid-template-columns: minmax(0, 1.05fr) 1fr !important;
   gap: clamp(3.65rem, 4vw, 5.15rem) !important;
   padding-top: clamp(7.54rem, 11vh, 9.54rem) !important;
-}
-
-.shard {
-  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
-  opacity: 0.49 !important;
 }
 
 .headline {
@@ -342,43 +399,7 @@
   transform: scale(1.044);
 }
 
-.statCard,
-.console,
-.dialCard,
-.baFrame,
-.tile,
-.jobCard,
-.stripCard,
-.metricBar {
-  box-shadow: none !important;
-}
-
 /* end identity layer */
-
-/* === HERO PATTERN UNIQUENESS — landscaping-template === */
-.hero {
-  &::before {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 12px, rgba($white, 0.02) 12px, rgba($white, 0.02) 13px),
-      repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba($white, 0.015) 12px, rgba($white, 0.015) 13px) !important;
-    background-size: auto !important;
-    opacity: 0.63 !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-  }
-
-  &::after {
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background-image: radial-gradient(ellipse 50% 40% at 14% 18%, rgba($orange, 0.079), transparent 70%), radial-gradient(ellipse 40% 50% at 60% 67%, rgba($white, 0.03), transparent 65%) !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-  }
-}
-/* end hero pattern */
 
 /* === MOBILE HERO FOLD SAFETY (fleet QA) === */
 @media (max-width: 640px) {
@@ -415,9 +436,9 @@
 }
 
 /* === TABLET + MOBILE HERO VISUAL DEFER (fleet QA) === */
-/* Hide side dials/meters on tablet & phone so the hero fold stays clean */
+/* The hero photo card is intentionally kept visible on tablet & phone —
+   it is the ownable brand image, not a decorative side dial. */
 @media (max-width: 960px) {
-  .visual,
   .heroVisual,
   .meterWrap,
   .rightCol,
@@ -462,7 +483,6 @@
 }
 
 /* === MOBILE WELCOME STACK (fleet QA) === */
-/* Kill side-by-side hero chrome on phone: stack CTAs, rails, collages, dials */
 @media (max-width: 640px) {
   .ctaRow,
   .actions,
@@ -482,58 +502,5 @@
     width: 100% !important;
     justify-content: center !important;
     box-sizing: border-box !important;
-  }
-
-  .jobRail,
-  .jobStrip,
-  .shotRail {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 0.65rem !important;
-    width: 100% !important;
-    max-width: 22rem !important;
-    margin: 0 auto !important;
-  }
-
-  .collageGrid,
-  .collage {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-    min-height: 0 !important;
-    max-width: 22rem !important;
-    width: 100% !important;
-  }
-
-  .tileMain,
-  .tileSide,
-  .tile {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    min-height: 140px !important;
-  }
-
-  .plantDialGrid {
-    grid-template-columns: 1fr 1fr !important;
-    max-width: 100% !important;
-  }
-
-  .scanCard {
-    grid-template-columns: 1fr !important;
-    gap: 0.35rem !important;
-  }
-
-  .scanRight {
-    align-items: flex-start !important;
-  }
-
-  .materials,
-  .matGrid,
-  .swatchGrid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .statGrid,
-  .statsRow {
-    grid-template-columns: 1fr 1fr !important;
   }
 }
